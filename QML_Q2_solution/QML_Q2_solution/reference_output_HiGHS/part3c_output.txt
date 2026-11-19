@@ -1,0 +1,134 @@
+
+====================================================================================================
+PART 3c | large instance: minimum fleet for time-window feasibility = 2
+====================================================================================================
+
+====================================================================================================
+PART 3c | large instance, with time windows | K = 5 | penalty P = 2
+====================================================================================================
+Status: OPTIMAL | runtime 20.55 s | #vars 1635 (#int 1405) | #constraints 2895
+Total distance (first stage) : 331.51
+Emergency recharges over the 12 monthly scenarios: 11  -> expected per day: 0.917
+Expected penalty per day     : 1.83
+Objective (expected cost)    : 333.34
+
+First-stage routes:
+ vehicle  used                       route  n_stops  distance  depart    back
+       1  True      0-3-4-2-10-19-15-9-5-0        8    127.67   93.09 1314.14
+       2  True 0-18-16-20-11-13-14-12-17-0        8    108.22    0.60 1153.26
+       3  True              0-21-7-6-8-1-0        5     95.63  496.93 1081.14
+       4 False                         0-0        0      0.00     NaN     NaN
+       5 False                         0-0        0      0.00     NaN     NaN
+
+Emergency recharges per vehicle and month:
+           veh 1 (L=127.7)  veh 2 (L=108.2)  veh 3 (L=95.6)     R_s  total  penalty
+January                  1                1               1   89.35      3        6
+February                 1                1               0  100.65      2        4
+March                    1                0               0  113.55      1        2
+April                    0                0               0  129.45      0        0
+May                      0                0               0  135.15      0        0
+June                     0                0               0  132.55      0        0
+July                     0                0               0  139.25      0        0
+August                   0                0               0  133.75      0        0
+September                0                0               0  131.45      0        0
+October                  1                0               0  120.65      1        2
+November                 1                0               0  112.15      1        2
+December                 1                1               1   93.45      3        6
+
+Where the recharges happen (leg and cumulative km):
+   month  vehicle    R_s on_leg  at_km
+ January        1  89.35  15->9  89.35
+February        1 100.65   9->5 100.65
+   March        1 113.55   9->5 113.55
+ October        1 120.65   5->0 120.65
+November        1 112.15   9->5 112.15
+December        1  93.45  15->9  93.45
+ January        2  89.35  17->0  89.35
+February        2 100.65  17->0 100.65
+December        2  93.45  17->0  93.45
+ January        3  89.35   1->0  89.35
+December        3  93.45   1->0  93.45
+
+====================================================================================================
+PART 3c | large instance, with time windows | K = 5 | penalty P = 60
+====================================================================================================
+Status: OPTIMAL | runtime 245.39 s | #vars 1635 (#int 1405) | #constraints 2895
+Total distance (first stage) : 337.86
+Emergency recharges over the 12 monthly scenarios: 9  -> expected per day: 0.750
+Expected penalty per day     : 45.00
+Objective (expected cost)    : 382.86
+
+First-stage routes:
+ vehicle  used                    route  n_stops  distance  depart    back
+       1  True  0-18-16-4-13-14-12-17-0        7    108.47    0.60 1153.26
+       2  True 0-20-11-2-10-19-15-9-5-0        8    107.80   89.07 1314.14
+       3  True            0-3-7-6-8-1-0        5    107.45   93.09 1081.14
+       4  True                   0-21-0        1     14.14  496.93  601.07
+       5 False                      0-0        0      0.00     NaN     NaN
+
+Emergency recharges per vehicle and month:
+           veh 1 (L=108.5)  veh 2 (L=107.8)  veh 3 (L=107.4)  veh 4 (L=14.1)     R_s  total  penalty
+January                  1                1                1               0   89.35      3      180
+February                 1                1                1               0  100.65      3      180
+March                    0                0                0               0  113.55      0        0
+April                    0                0                0               0  129.45      0        0
+May                      0                0                0               0  135.15      0        0
+June                     0                0                0               0  132.55      0        0
+July                     0                0                0               0  139.25      0        0
+August                   0                0                0               0  133.75      0        0
+September                0                0                0               0  131.45      0        0
+October                  0                0                0               0  120.65      0        0
+November                 0                0                0               0  112.15      0        0
+December                 1                1                1               0   93.45      3      180
+
+Where the recharges happen (leg and cumulative km):
+   month  vehicle    R_s on_leg  at_km
+ January        1  89.35  17->0  89.35
+February        1 100.65  17->0 100.65
+December        1  93.45  17->0  93.45
+ January        2  89.35   9->5  89.35
+February        2 100.65   5->0 100.65
+December        2  93.45   9->5  93.45
+ January        3  89.35   1->0  89.35
+February        3 100.65   1->0 100.65
+December        3  93.45   1->0  93.45
+
+====================================================================================================
+PART 3c | large instance, with time windows | K = 5 | penalty P = 150
+====================================================================================================
+Status: OPTIMAL | runtime 342.69 s | #vars 1635 (#int 1405) | #constraints 2895
+Total distance (first stage) : 397.21
+Emergency recharges over the 12 monthly scenarios: 0  -> expected per day: 0.000
+Expected penalty per day     : 0.00
+Objective (expected cost)    : 397.21
+
+First-stage routes:
+ vehicle  used               route  n_stops  distance  depart    back
+       1  True 0-18-16-4-2-12-17-0        6     88.37    0.60 1153.26
+       2  True        0-20-3-7-1-0        4     84.31   89.07  932.19
+       3  True     0-11-13-14-15-0        4     83.63  190.50  962.00
+       4  True          0-21-6-8-0        3     72.42  496.93  938.87
+       5  True       0-10-19-9-5-0        4     68.48  355.54 1314.14
+
+Emergency recharges per vehicle and month:
+           veh 1 (L=88.4)  veh 2 (L=84.3)  veh 3 (L=83.6)  veh 4 (L=72.4)  veh 5 (L=68.5)     R_s  total  penalty
+January                 0               0               0               0               0   89.35      0        0
+February                0               0               0               0               0  100.65      0        0
+March                   0               0               0               0               0  113.55      0        0
+April                   0               0               0               0               0  129.45      0        0
+May                     0               0               0               0               0  135.15      0        0
+June                    0               0               0               0               0  132.55      0        0
+July                    0               0               0               0               0  139.25      0        0
+August                  0               0               0               0               0  133.75      0        0
+September               0               0               0               0               0  131.45      0        0
+October                 0               0               0               0               0  120.65      0        0
+November                0               0               0               0               0  112.15      0        0
+December                0               0               0               0               0   93.45      0        0
+
+====================================================================================================
+PART 3b/3c | summary
+====================================================================================================
+                                               case   P  status  distance  vehicles_used  recharges_12_months  exp_recharges_per_day  exp_penalty_per_day  objective  runtime_s  gap_pct                                                                            routes
+PART 3c | large instance, with time windows | K = 5   2 OPTIMAL    331.51              3                   11                  0.917                 1.83     333.34     20.553    0.000             0-3-4-2-10-19-15-9-5-0 | 0-18-16-20-11-13-14-12-17-0 | 0-21-7-6-8-1-0
+PART 3c | large instance, with time windows | K = 5  60 OPTIMAL    337.86              4                    9                  0.750                45.00     382.86    245.394    0.009       0-18-16-4-13-14-12-17-0 | 0-20-11-2-10-19-15-9-5-0 | 0-3-7-6-8-1-0 | 0-21-0
+PART 3c | large instance, with time windows | K = 5 150 OPTIMAL    397.21              5                    0                  0.000                 0.00     397.21    342.687    0.009 0-18-16-4-2-12-17-0 | 0-20-3-7-1-0 | 0-11-13-14-15-0 | 0-21-6-8-0 | 0-10-19-9-5-0

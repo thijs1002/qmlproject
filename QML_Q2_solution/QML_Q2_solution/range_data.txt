@@ -1,0 +1,12 @@
+January	89.35
+February	100.65
+March	113.55
+April	129.45
+May	135.15
+June	132.55
+July	139.25
+August	133.75
+September	131.45
+October	120.65
+November	112.15
+December	93.45

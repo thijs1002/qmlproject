@@ -1,0 +1,193 @@
+
+====================================================================================================
+PART 3d | depot recharging, with time windows, K = 3 | P = 2, TAU = 30, F = 5
+====================================================================================================
+Status: OPTIMAL | runtime 1.72 s | #vars 1956 (#int 1644) | #constraints 4767
+Total distance (first stage): 208.38
+ vehicle  used                    route  n_stops  distance  depart    back
+       1  True 0-3-4-2-10-7-6-8-1-9-5-0       10    208.38    92.2 1313.83
+       2 False                      0-0        0      0.00     NaN     NaN
+       3 False                      0-0        0      0.00     NaN     NaN
+
+Depot recharges over 12 months: 0 (extra km 0.00) | emergency recharges: 15
+Expected recourse cost per day: 2.50 | objective 210.88
+
+Recourse actions per month and vehicle:
+    month    R_s  vehicle depot_recharges   emergency  extra_km
+  January  89.35        1                 6->8, 10->7         0
+ February 100.65        1                  5->0, 7->6         0
+    March 113.55        1                        7->6         0
+    April 129.45        1                        8->1         0
+      May 135.15        1                        8->1         0
+     June 132.55        1                        8->1         0
+     July 139.25        1                        1->9         0
+   August 133.75        1                        8->1         0
+September 131.45        1                        8->1         0
+  October 120.65        1                        6->8         0
+ November 112.15        1                        6->8         0
+ December  93.45        1                  3->4, 6->8         0
+
+====================================================================================================
+PART 3d | depot recharging, with time windows, K = 3 | P = 60, TAU = 30, F = 5
+====================================================================================================
+Status: OPTIMAL | runtime 28.77 s | #vars 1956 (#int 1644) | #constraints 4767
+Total distance (first stage): 212.53
+ vehicle  used          route  n_stops  distance  depart    back
+       1  True  0-3-4-2-9-5-0        5    106.91   92.20 1313.83
+       2  True 0-10-7-6-8-1-0        5    105.62  354.79 1083.41
+       3 False            0-0        0      0.00     NaN     NaN
+
+Depot recharges over 12 months: 4 (extra km 166.61) | emergency recharges: 2
+Expected recourse cost per day: 25.55 | objective 238.08
+
+Recourse actions per month and vehicle:
+   month    R_s  vehicle depot_recharges emergency  extra_km
+ January  89.35        1         4->0->2               51.00
+ January  89.35        2                      6->8      0.00
+February 100.65        1         2->0->9               43.54
+February 100.65        2        10->0->7               28.54
+December  93.45        1         2->0->9               43.54
+December  93.45        2                      8->1      0.00
+
+Example timetable with a depot recharge (January, vehicle 1):
+ node  action_on_leg  arrival   start          tw  rem_range
+    3                  125.00  125.00   [125,285]      56.55
+    4                  227.04  227.04   [209,369]      44.51
+    2 depot recharge   411.98  411.98   [398,558]      57.25
+    9                  518.28 1102.00 [1102,1342]      40.95
+    5                 1211.29 1211.29 [1147,1307]      21.66
+    0                 1313.83 1313.83    [0,1440]       9.12
+
+====================================================================================================
+PART 3d | depot recharging, with time windows, K = 3 | P = 150, TAU = 30, F = 5
+====================================================================================================
+Status: OPTIMAL | runtime 41.35 s | #vars 1956 (#int 1644) | #constraints 4767
+Total distance (first stage): 246.41
+ vehicle  used        route  n_stops  distance  depart    back
+       1  True  0-3-4-7-1-0        4     91.80   92.20  932.96
+       2  True 0-10-2-9-5-0        4     81.11  354.79 1313.83
+       3  True      0-8-6-0        2     73.51  783.98 1037.49
+
+Depot recharges over 12 months: 1 (extra km 41.09) | emergency recharges: 0
+Expected recourse cost per day: 3.84 | objective 250.26
+
+Recourse actions per month and vehicle:
+  month   R_s  vehicle depot_recharges emergency  extra_km
+January 89.35        1         7->0->1               41.09
+
+Example timetable with a depot recharge (January, vehicle 1):
+ node  action_on_leg  arrival  start        tw  rem_range
+    3                  125.00 125.00 [125,285]      56.55
+    4                  227.04 227.04 [209,369]      44.51
+    7                  330.83 652.00 [652,902]      30.73
+    1 depot recharge   822.30 822.30 [819,979]      65.39
+    0                  936.27 936.27  [0,1440]      41.42
+
+====================================================================================================
+PART 3d | summary
+====================================================================================================
+  P  tau  F  status  distance  vehicles_used  depot_recharges_12m  detour_km_12m  emergency_12m  exp_recourse_cost  objective  runtime_s  gap_pct                               routes
+  2   30  5 OPTIMAL    208.38              1                    0           0.00             15               2.50     210.88      1.720    0.000             0-3-4-2-10-7-6-8-1-9-5-0
+ 60   30  5 OPTIMAL    212.53              2                    4         166.61              2              25.55     238.08     28.772    0.007       0-3-4-2-9-5-0 | 0-10-7-6-8-1-0
+150   30  5 OPTIMAL    246.41              3                    1          41.09              0               3.84     250.26     41.352    0.000 0-3-4-7-1-0 | 0-10-2-9-5-0 | 0-8-6-0
+
+====================================================================================================
+PART 3d | sensitivity charging time | P = 60, TAU = 0, F = 5
+====================================================================================================
+Status: OPTIMAL | runtime 24.37 s | #vars 1980 (#int 1668) | #constraints 4839
+Total distance (first stage): 212.53
+ vehicle  used          route  n_stops  distance  depart    back
+       1  True  0-3-4-2-9-5-0        5    106.91   92.20 1313.83
+       2  True 0-10-7-6-8-1-0        5    105.62  354.79 1083.41
+       3 False            0-0        0      0.00     NaN     NaN
+
+Depot recharges over 12 months: 4 (extra km 166.61) | emergency recharges: 2
+Expected recourse cost per day: 25.55 | objective 238.08
+
+Recourse actions per month and vehicle:
+   month    R_s  vehicle depot_recharges emergency  extra_km
+ January  89.35        1         4->0->2               51.00
+ January  89.35        2                      7->6      0.00
+February 100.65        1         2->0->9               43.54
+February 100.65        2        10->0->7               28.54
+December  93.45        1         2->0->9               43.54
+December  93.45        2                     0->10      0.00
+
+Example timetable with a depot recharge (January, vehicle 1):
+ node  action_on_leg  arrival   start          tw  rem_range
+    3                  125.00  125.00   [125,285]      56.55
+    4                  227.04  227.04   [209,369]      44.51
+    2 depot recharge   381.98  398.00   [398,558]      57.25
+    9                  504.30 1102.00 [1102,1342]      40.95
+    5                 1211.29 1211.29 [1147,1307]      21.66
+    0                 1313.83 1313.83    [0,1440]       9.12
+
+====================================================================================================
+PART 3d | sensitivity charging time | P = 60, TAU = 90, F = 5
+====================================================================================================
+Status: OPTIMAL | runtime 16.58 s | #vars 1872 (#int 1560) | #constraints 4515
+Total distance (first stage): 212.53
+ vehicle  used          route  n_stops  distance  depart    back
+       1  True  0-3-4-2-9-5-0        5    106.91   92.20 1313.83
+       2  True 0-10-7-6-8-1-0        5    105.62  354.79 1083.41
+       3 False            0-0        0      0.00     NaN     NaN
+
+Depot recharges over 12 months: 4 (extra km 166.61) | emergency recharges: 2
+Expected recourse cost per day: 25.55 | objective 238.08
+
+Recourse actions per month and vehicle:
+   month    R_s  vehicle depot_recharges emergency  extra_km
+ January  89.35        1         4->0->2               51.00
+ January  89.35        2                      6->8      0.00
+February 100.65        1         2->0->9               43.54
+February 100.65        2        10->0->7               28.54
+December  93.45        1         2->0->9               43.54
+December  93.45        2                      1->0      0.00
+
+Example timetable with a depot recharge (January, vehicle 1):
+ node  action_on_leg  arrival   start          tw  rem_range
+    3                  125.00  125.00   [125,285]      56.55
+    4                  227.04  227.04   [209,369]      44.51
+    2 depot recharge   471.98  471.98   [398,558]      57.25
+    9                  578.28 1102.00 [1102,1342]      40.95
+    5                 1211.29 1211.29 [1147,1307]      21.66
+    0                 1313.83 1313.83    [0,1440]       9.12
+
+====================================================================================================
+PART 3d | sensitivity charging time | P = 60, TAU = 180, F = 5
+====================================================================================================
+Status: OPTIMAL | runtime 24.61 s | #vars 1836 (#int 1524) | #constraints 4407
+Total distance (first stage): 212.53
+ vehicle  used          route  n_stops  distance  depart    back
+       1  True  0-3-4-2-9-5-0        5    106.91   92.20 1313.83
+       2  True 0-10-7-6-8-1-0        5    105.62  354.79 1083.41
+       3 False            0-0        0      0.00     NaN     NaN
+
+Depot recharges over 12 months: 2 (extra km 87.08) | emergency recharges: 4
+Expected recourse cost per day: 28.09 | objective 240.62
+
+Recourse actions per month and vehicle:
+   month    R_s  vehicle depot_recharges emergency  extra_km
+ January  89.35        1                      2->9      0.00
+ January  89.35        2                      1->0      0.00
+February 100.65        1         2->0->9               43.54
+February 100.65        2                      8->1      0.00
+December  93.45        1         2->0->9               43.54
+December  93.45        2                      8->1      0.00
+
+Example timetable with a depot recharge (February, vehicle 1):
+ node  action_on_leg  arrival   start          tw  rem_range
+    3                  125.00  125.00   [125,285]      67.85
+    4                  227.04  227.04   [209,369]      55.81
+    2                  330.98  398.00   [398,558]      41.87
+    9 depot recharge   727.84 1102.00 [1102,1342]      72.91
+    5                 1211.29 1211.29 [1147,1307]      53.62
+    0                 1313.83 1313.83    [0,1440]      41.08
+
+====================================================================================================
+PART 3d | sensitivity to depot charging time TAU (P = 60)
+====================================================================================================
+ P  tau  F  status  distance  vehicles_used  depot_recharges_12m  detour_km_12m  emergency_12m  exp_recourse_cost  objective  runtime_s  gap_pct                         routes
+60    0  5 OPTIMAL    212.53              2                    4         166.61              2              25.55     238.08     24.367    0.009 0-3-4-2-9-5-0 | 0-10-7-6-8-1-0
+60   90  5 OPTIMAL    212.53              2                    4         166.61              2              25.55     238.08     16.585    0.008 0-3-4-2-9-5-0 | 0-10-7-6-8-1-0
+60  180  5 OPTIMAL    212.53              2                    2          87.08              4              28.09     240.62     24.610    0.000 0-3-4-2-9-5-0 | 0-10-7-6-8-1-0
